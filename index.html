@@ -40,15 +40,14 @@
       font-weight: 600;
       transition: color 0.3s;
     }
-    nav a:hover { color: #6c3483; }section {
-  padding: 3rem 2rem;
-  min-height: 100vh;
-  display: none;
-  animation: fadeIn 0.8s ease forwards;
-}
-section.active { display: block; }
-
-@keyframes fadeIn {
+    nav a:hover { color: #6c3483; }
+    section {
+      padding: 3rem 2rem;
+      min-height: 100vh;
+      display: none;
+      animation: fadeIn 0.8s ease forwards;
+    }
+    section.active { display: block; }@keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
@@ -103,38 +102,11 @@ section.active { display: block; }
   font-size: 0.8rem;
   border-radius: 5px;
 }
-.cart, .stores, .register, .checkout {
-  background: #fff;
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
 .footer {
   text-align: center;
   padding: 1rem;
   background: #fff;
   color: var(--purple);
-}
-#searchBar, #sortSelect, #categoryFilter {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  margin-top: 1rem;
-  font-size: 1rem;
-}
-#pagination {
-  text-align: center;
-  margin-top: 2rem;
-}
-#pagination button {
-  background: var(--purple);
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0 5px;
-  border-radius: 8px;
-  cursor: pointer;
 }
 #cartIcon {
   position: fixed;
@@ -170,7 +142,16 @@ section.active { display: block; }
   </style>
 </head>
 <body>
-  <div id="cartIcon" onclick="showSection('cart')">🛒<span id="cartCount"></span></div>  <div id="confirmationModal">
+  <header>
+    <h1>DIRA SHOP</h1>
+    <nav>
+      <a href="#" onclick="showSection('products')">Produk</a>
+      <a href="#" onclick="showConfirmation()">Checkout</a>
+    </nav>
+  </header>  <div id="cartIcon" onclick="showConfirmation()">🛒<span id="cartCount"></span></div>  <section id="products" class="active">
+    <h2>Produk Digital</h2>
+    <div class="product-list"></div>
+  </section>  <div id="confirmationModal">
     <div class="modal">
       <h3>Konfirmasi Pesanan</h3>
       <div id="confirmationDetails"></div>
@@ -188,7 +169,9 @@ section.active { display: block; }
       <button onclick="addToCart(quickIndex)">Tambah ke Keranjang</button>
       <button onclick="closeQuickView()">Tutup</button>
     </div>
-  </div>  <!-- Lanjutkan ke body konten utama dan JS untuk fitur tersebut -->  <script>
+  </div>  <footer class="footer">
+    &copy; 2025 DIRA SHOP - All Rights Reserved.
+  </footer>  <script>
     let cart = [];
     let quickIndex = null;
 
